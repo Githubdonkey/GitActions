@@ -1,4 +1,4 @@
-name: Packer
+name: Packer-AWS
 on:
   push:
       paths:
