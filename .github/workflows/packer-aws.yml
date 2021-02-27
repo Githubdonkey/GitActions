@@ -1,3 +1,47 @@
+parameters:
+- name: imagesMenu
+  displayName: Image Selection
+  type: string
+  default: win2019_default
+  values:
+  - 2012R2_base
+  - 2012R2_default
+  - 2016_base
+  - 2016_default
+  - 2016_update
+  - 2019_base
+  - 2019_default
+  - ubuntu18_base
+- name: osMenu
+  displayName: Select OS
+  type: string
+  default: windows
+  values:
+  - windows
+  - linux
+  - vmware
+  - all
+- name: imageVarFile
+  displayName: Select Credentials
+  type: string
+  default: windows
+  values:
+  - default
+  - production
+  - debug
+  - all
+- name: providerMenu
+  displayName: Select Provider
+  type: string
+  default: aws
+  values:
+  - aws
+  - azure
+  - vcenter
+  - all
+
+
+
 name: 'Packer-AWS'
 on: 
   workflow_dispatch:
@@ -26,9 +70,3 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: us-east-1
-    printInputs:
-    runs-on: ubuntu-latest
-    steps:
-    - run: |
-        echo "Log level: ${{ github.event.inputs.logLevel }}"
-        echo "Tags: ${{ github.event.inputs.tags }}"
