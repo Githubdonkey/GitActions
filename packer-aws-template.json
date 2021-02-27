@@ -11,9 +11,9 @@
     "source_ami":     "ami-af22d9b9",
     "instance_type":  "t2.micro",
     "ssh_username":   "ubuntu",
-    "ami_name":       "packer-example {{timestamp}}",
+    "ami_name":       "aws-packer-example {{timestamp}}",
     "tags": {
-      "Name":         "packer-example {{timestamp}}"
+      "Name":         "aws-packer-example {{timestamp}}"
     }
   }]
 }

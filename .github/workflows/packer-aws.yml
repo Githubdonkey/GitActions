@@ -2,20 +2,20 @@ name: Packer
 on:
   push:
       paths:
-        - '*packer-template.json'
+        - '*aws-template.json'
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: packer validate packer-template.json
+      - name: packer validate packer-aws-template.json
         uses: docker://hashicorp/packer:1.7.0
         with:
-          args: validate packer-template.json
-      - name: packer build packer-template.json
+          args: validate packer-aws-template.json
+      - name: packer build packer-aws-template.json
         uses: docker://hashicorp/packer:1.7.0
         with:
-          args: build packer-template.json
+          args: build packer-aws-template.json
         env:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
