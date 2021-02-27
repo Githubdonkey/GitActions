@@ -1,4 +1,4 @@
-name: Packer-AWS
+name: 'Packer-AWS'
 on: 
   workflow_dispatch:
     inputs:
